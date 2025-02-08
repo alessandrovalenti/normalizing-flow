@@ -1,4 +1,1 @@
-# normalizingFlow
-Sample notebook for creating a NormalizingFlow machine learning model in PyTorch.
-
-
+This repository provides a simple implementation of Normalizing Flows using PyTorch. Normalizing Flows are a class of generative models that transform a simple base distribution into a complex target distribution via a sequence of invertible transformations.
