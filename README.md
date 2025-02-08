@@ -1,1 +1,1 @@
-This repository provides a simple implementation of Normalizing Flows using PyTorch. Normalizing Flows are a class of generative models that transform a simple base distribution into a complex target distribution via a sequence of invertible transformations.
+This repository provides a simple implementation of Normalizing Flows using PyTorch. Done for didactical purposes.
