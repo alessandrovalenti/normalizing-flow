@@ -1,0 +1,29 @@
+We will consider a  2-d case. Defining the variables as $\vec{y}=(y_A, y_B)$ and $\vec{x}=(x_A, x_B)$, we will define two affine layers (simple, analytically invertible layers). In the first layer
+$$
+\begin{cases}
+z_A =  x_A \\
+z_B = e^{s_1(x_A)} x_B + t_1(x_A)
+ \end{cases} \longrightarrow 
+ \begin{cases}
+x_A =  z_A \\
+x_B = e^{-s_1(z_A)}  (z_B -t_1 (z_A))
+ \end{cases}
+$$
+where $s_1, t_1$ are NN. For the second layer, we take it to be identical to the first one except for permuting $A$ and $B$:
+and in the second one
+$$
+\begin{cases}
+y_A =  z_B \\
+y_B = e^{s_2(z_B)} z_A + t_2(z_B)
+ \end{cases}
+ \longrightarrow 
+ \begin{cases}
+z_B =  y_A \\
+z_A = e^{-s_2(y_A)}  (y_B - t_2 (y_A))
+ \end{cases}
+$$
+
+The natural way to train the model is to minimize the negative log-likelihood:
+$$  L = - \sum_i \log f_Y (\vec{y}_i)$$
+where $y_i$'s are the data for $y$, and $f_Y$ is defined as before in terms of the base distribution. Using the formula above for the change of the distribution, then, the final loss function that I obtain reads
+$$ L = - \sum_i \log f_X(\vec{x}(\vec{y}_i)) - \sum_i \log |J^{-1}(y_i)| = - \sum_i \log f_X(\vec{x}(\vec{y}_i)) + \sum_i s_1 (z_A (y_A, y_B)) + \sum_i s_2 (y_A)$$
